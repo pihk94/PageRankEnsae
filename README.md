@@ -16,7 +16,7 @@ import sys
 ##### Melchior Prugniaud MS DS
 
 
-La machine utilisé est une machine avec 32GB de RAM avec une carte graphique NVIDIA GeForce GTX 1080. Le processeur est un AMD Ryzen 7 1700 3GHz avec 8 coeurs. Des tests ont été effectués sur une autre machine mais il n'a pas été possible de charger certains datasets en mémoire
+La machine utilisé est une machine avec 32GB de RAM avec une carte graphique NVIDIA GeForce GTX 1080. Le processeur est un AMD Ryzen 7 1700 3GHz avec 8 coeurs. Au départ, ma volonté était de réaliser le projet sur Python puis de voir la différence avec PyCuda mais celà n'a pas fonctionné car mon installation semble avoir des problèmes avec la détection des librairies de C/C++. C'est pourquoi, le projet démarre sur python puis migre sur C pour enfin terminer sur un rendu en Cuda. 
 
 # PageRank
 
@@ -284,7 +284,7 @@ v.sum()
 
 
 
-Je reprends une fonction créer par vous même permettant de mesurer le temps d'exécution moyen. 
+Je reprends une fonction créée par vous même permettant de mesurer le temps d'exécution moyen. 
 
 
 ```python
@@ -340,8 +340,10 @@ plt.show()
 
 ![png](output_17_1.png)
 
+### 3.) Implémentation sous C
 
-L'idée initiale était d'utiliser PyCuda dans la suite du devoir. Malheureusement, je ne suis pas arrivé à faire fonctionner PyCuda sur la machine que j'utilise car il ne trouve pas les librairies de base comme iostream. C'est pourquoi la suite de ce devoir se fera sous C puis Cuda.
+Dans un premier temps, j'ai réalisé un fichier en C++ permettant de réaliser le PageRank. Il prend en entrée un fichier texte à renseigner, demande ensuite le nombre maximale d'itérations choisis et réalise le PageRank. A noter qu'il faut manuellement renseigner le nombre de sommets du fichier. Une version sans cette manipulation est disponible dans le fichier 'PageRankAuto.cpp' mais étant donné que je n'arrivais pas bien à implémenter les vecteurs avec Cuda, la version qui sert de comparatif avec cuda est 'PageRank.cpp'. 
 
-Dans un premier temps, j'ai réalisé un fichier en C++ permettant de réaliser le PageRank. Il prend en entrée un fichier texte à renseigner, demande ensuite le nombre maximale d'itérations choisis et réalise le PageRank.
+La base issu du fichier email.txt se compose de 1004 sommets pour un total de 25 571 arrêtes. En utilisant le code réalisé sous Python, on remarque un temps d'exécution d'environ 250 simillisecondes. Avec notre code en C++, le temps d'exécution est de millisecondes.
+Sur la base email.txt, le temps de traitement est de 409.753 millisecondes. Il est alors facile de remarque
 
