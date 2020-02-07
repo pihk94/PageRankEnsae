@@ -69,40 +69,48 @@ np.array([0,1/2,1,1/3,
 
 A partir de ces répresentations, on peut plus facilement calculer pour ce léger exemple le pagerank de A. Sachant qu'au départ nous avons initialisé les poids de tel manière tel qu'au départ leur valeur soit de 1/N donc 1/4. 
 
-<center>
-    <a href="https://www.codecogs.com/eqnedit.php?latex=PR(A)&space;=&space;\frac{PR(B)}{2}&space;&plus;&space;PR(C)&space;&plus;&space;\frac{PR(D)}{3}" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(A)&space;=&space;\frac{PR(B)}{2}&space;&plus;&space;PR(C)&space;&plus;&space;\frac{PR(D)}{3}" title="PR(A) = \frac{PR(B)}{2} + PR(C) + \frac{PR(D)}{3}" /></a>
-</center>
+![$ PR(A) = \frac{PR(B)}{2} + PR(C) + \frac{PR(D)}{3} $](https://render.githubusercontent.com/render/math?math=%24%20PR(A)%20%3D%20%5Cfrac%7BPR(B)%7D%7B2%7D%20%2B%20PR(C)%20%2B%20%5Cfrac%7BPR(D)%7D%7B3%7D%20%24)
+
 Ainsi à la première itération, nous avons : 
-<center>
-<a href="https://www.codecogs.com/eqnedit.php?latex=PR(A)&space;=&space;\frac{0.25}{2}&space;&plus;&space;0.25&space;&plus;&space;\frac{0.25}{3}&space;=&space;0.458" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(A)&space;=&space;\frac{0.25}{2}&space;&plus;&space;0.25&space;&plus;&space;\frac{0.25}{3}&space;=&space;0.458" title="PR(A) = \frac{0.25}{2} + 0.25 + \frac{0.25}{3} = 0.458" /></a>
-</center>
+
+![$ PR(A) = \frac{0.25}{2} + 0.25 + \frac{0.25}{3} = 0.458 $](https://render.githubusercontent.com/render/math?math=%24%20PR(A)%20%3D%20%5Cfrac%7B0.25%7D%7B2%7D%20%2B%200.25%20%2B%20%5Cfrac%7B0.25%7D%7B3%7D%20%3D%200.458%20%24)
+
+
 De manière plus général, il est possible d'écrire : 
-<center>
-<a href="https://www.codecogs.com/eqnedit.php?latex=PR(A)&space;=&space;\frac{PR(B)}{L(B)}&space;&plus;&space;\frac{PR(C)}{L(C)}&space;&plus;&space;\frac{PR(D)}{L(D)}" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(A)&space;=&space;\frac{PR(B)}{L(B)}&space;&plus;&space;\frac{PR(C)}{L(C)}&space;&plus;&space;\frac{PR(D)}{L(D)}" title="PR(A) = \frac{PR(B)}{L(B)} + \frac{PR(C)}{L(C)} + \frac{PR(D)}{L(D)}" /></a>
-</center>
+
+
+![$ PR(A) = \frac{PR(B)}{L(B)} + \frac{PR(C)}{L(C)} + \frac{PR(D)}{L(D)}$](https://render.githubusercontent.com/render/math?math=%24%20PR(A)%20%3D%20%5Cfrac%7BPR(B)%7D%7BL(B)%7D%20%2B%20%5Cfrac%7BPR(C)%7D%7BL(C)%7D%20%2B%20%5Cfrac%7BPR(D)%7D%7BL(D)%7D%24)
+
+
 Où L(N) représente le nombre de liens sortant de la page N. 
 
+
 Ainsi, nous obtenons : 
-<center>
-<a href="https://www.codecogs.com/eqnedit.php?latex=PR(u)&space;=&space;\sum_{v&space;\in&space;B_u}\frac{PR(v)}{L(v)}" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(u)&space;=&space;\sum_{v&space;\in&space;B_u}\frac{PR(v)}{L(v)}" title="PR(u) = \sum_{v \in B_u}\frac{PR(v)}{L(v)}" /></a>
-</center>
+
+
+![$ PR(u) = \sum_{v \in B_u}\frac{PR(v)}{L(v)} $ ](https://render.githubusercontent.com/render/math?math=%24%20PR(u)%20%3D%20%5Csum_%7Bv%20%5Cin%20B_u%7D%5Cfrac%7BPR(v)%7D%7BL(v)%7D%20%24%20)
+
+
+
 Avec $ B_u $ l'ensemble des pages liant à u.
 
 Etant donné que le PageRank simule la navigation d'une personne cliquant aléatoirement sur les différents liens, on instaure la probabilité d qu'une personne continue sa navigation est appelé 'dampling factor'. Différentes études on réussit à déterminer que le dampling factor optimal était 0.85 et nous allons donc définir d = 0.85 dans le reste de ce notebook. Au final, en ajoutant le dampling factor à la formule précédente on obtient : 
 
-<center>
-$ PR(p_i) = \frac{1-d}{N}+d \sum_{p_j \in M(p_i)}\frac{PR(p_j)}{L(p_j)} $ 
+
+![$PR(p_i) = \frac{1-d}{N}+d \sum_{p_j \in M(p_i)}\frac{PR(p_j)}{L(p_j)}$](https://render.githubusercontent.com/render/math?math=%24PR(p_i)%20%3D%20%5Cfrac%7B1-d%7D%7BN%7D%2Bd%20%5Csum_%7Bp_j%20%5Cin%20M(p_i)%7D%5Cfrac%7BPR(p_j)%7D%7BL(p_j)%7D%24)
+
+
 
 Avec N le nombre de page et $ M(p_i) $ l'ensemble de page connectant à $ p_i $. La somme des $ PR(p_i) $ est alors égale à 1.
-</center>
+
 
 Comme montré précédemment, il est possible d'écrire cette équation de manière matricielle. 
 
-<center>
-$$ R = \begin{bmatrix} \frac{(1-d)}{N} \\ \frac{(1-d)}{N} \\... \\ \frac{(1-d)}{N} \end{bmatrix} + d \begin{bmatrix} l(p_1,p_1) & l(p_1,p_2)  & ... & l(p_1,p_N)\\ l(p_2,p_1) & l(p_2,p_2)  & ... & l(p_2,p_N)\\ ... & ... & ... & ... \\ l(p_N,p_1) & l(p_N,p_2)  & ... & l(p_N,p_N)\\\end{bmatrix} R $$
-</center>
+![$ R = \begin{bmatrix} \frac{(1-d)}{N} \\ \frac{(1-d)}{N} \\... \\ \frac{(1-d)}{N} \end{bmatrix} + d \begin{bmatrix} l(p_1,p_1) & l(p_1,p_2)  & ... & l(p_1,p_N)\\ l(p_2,p_1) & l(p_2,p_2)  & ... & l(p_2,p_N)\\ ... & ... & ... & ... \\ l(p_N,p_1) & l(p_N,p_2)  & ... & l(p_N,p_N)\\\end{bmatrix} R $](https://render.githubusercontent.com/render/math?math=%24%20R%20%3D%20%5Cbegin%7Bbmatrix%7D%20%5Cfrac%7B(1-d)%7D%7BN%7D%20%5C%5C%20%5Cfrac%7B(1-d)%7D%7BN%7D%20%5C%5C...%20%5C%5C%20%5Cfrac%7B(1-d)%7D%7BN%7D%20%5Cend%7Bbmatrix%7D%20%2B%20d%20%5Cbegin%7Bbmatrix%7D%20l(p_1%2Cp_1)%20%26%20l(p_1%2Cp_2)%20%20%26%20...%20%26%20l(p_1%2Cp_N)%5C%5C%20l(p_2%2Cp_1)%20%26%20l(p_2%2Cp_2)%20%20%26%20...%20%26%20l(p_2%2Cp_N)%5C%5C%20...%20%26%20...%20%26%20...%20%26%20...%20%5C%5C%20l(p_N%2Cp_1)%20%26%20l(p_N%2Cp_2)%20%20%26%20...%20%26%20l(p_N%2Cp_N)%5C%5C%5Cend%7Bbmatrix%7D%20R%20%24)
 
-Avec $ \sum_{i=1}^{N} l(p_i,p_j) = 1$
+
+Avec ![$ \sum_{i=1}^{N} l(p_i,p_j) = 1$](https://render.githubusercontent.com/render/math?math=%24%20%5Csum_%7Bi%3D1%7D%5E%7BN%7D%20l(p_i%2Cp_j)%20%3D%201%24)
+
 
 
 ### 2.) Première implémentation
