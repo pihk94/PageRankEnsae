@@ -70,6 +70,7 @@ np.array([0,1/2,1,1/3,
 A partir de ces répresentations, on peut plus facilement calculer pour ce léger exemple le pagerank de A. Sachant qu'au départ nous avons initialisé les poids de tel manière tel qu'au départ leur valeur soit de 1/N donc 1/4. 
 
 <center>
+    <a href="https://www.codecogs.com/eqnedit.php?latex=PR(A)&space;=&space;\frac{PR(B)}{2}&space;&plus;&space;PR(C)&space;&plus;&space;\frac{PR(D)}{3}" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(A)&space;=&space;\frac{PR(B)}{2}&space;&plus;&space;PR(C)&space;&plus;&space;\frac{PR(D)}{3}" title="PR(A) = \frac{PR(B)}{2} + PR(C) + \frac{PR(D)}{3}" /></a>
 $ PR(A) = \frac{PR(B)}{2} + PR(C) + \frac{PR(D)}{3} $
 </center>
 Ainsi à la première itération, nous avons : 
