@@ -159,6 +159,11 @@ Nous réalisons donc un comparatif des performances pour l'ensemble des trois da
 
 Dans un premier temps, j'ai réalisé un fichier en C++ permettant de réaliser le PageRank. Il prend en entrée un fichier texte à renseigner, demande ensuite le nombre maximale d'itérations choisis et réalise le PageRank. A noter qu'il faut manuellement renseigner le nombre de sommets du fichier. Une version sans cette manipulation est disponible dans le fichier 'PageRankAuto.cpp' mais étant donné que je n'arrivais pas bien à implémenter les vecteurs avec Cuda, la version qui sert de comparatif avec cuda est 'PageRank.cpp'. 
 
-La base issu du fichier email.txt se compose de 1004 sommets pour un total de 25 571 arrêtes. En utilisant le code réalisé sous Python, on remarque un temps d'exécution d'environ 250 simillisecondes. Avec notre code en C++, le temps d'exécution est de millisecondes.
-Sur la base email.txt, le temps de traitement est de 409.753 millisecondes. Il est alors facile de remarque
+La base issu du fichier email.txt se compose de 1004 sommets pour un total de 25 571 arrêtes. En utilisant le code réalisé sous Python, on remarque un temps d'exécution d'environ 250 simillisecondes. Avec notre code en C++, le temps d'exécution est de xx millisecondes.
+Sur la base email.txt, le temps de traitement est de 409.753 millisecondes. 
+
+
+### 4.) Conclusion
+
+A venir, j'ai encore des soucis de logique dans l'implémentation du code sous cuda du fichier PageRankCuda.cu. En effet, le fichier ne fonctionne que pour le pour la base de test se composant uniquement de 4 sommets. Pour celle des emails, j'ai des soucis dans le choix du nombre de blocks et de thread. En effet, dans ma fonction mul il semblerait que je n'affecte pas bien mes boucles qui dépendent justement de ce nombre de blocks et thread. Cela engendre des erreurs que je suis entrain de corriger... 
 
