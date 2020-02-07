@@ -71,21 +71,20 @@ A partir de ces répresentations, on peut plus facilement calculer pour ce lége
 
 <center>
     <a href="https://www.codecogs.com/eqnedit.php?latex=PR(A)&space;=&space;\frac{PR(B)}{2}&space;&plus;&space;PR(C)&space;&plus;&space;\frac{PR(D)}{3}" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(A)&space;=&space;\frac{PR(B)}{2}&space;&plus;&space;PR(C)&space;&plus;&space;\frac{PR(D)}{3}" title="PR(A) = \frac{PR(B)}{2} + PR(C) + \frac{PR(D)}{3}" /></a>
-$ PR(A) = \frac{PR(B)}{2} + PR(C) + \frac{PR(D)}{3} $
 </center>
 Ainsi à la première itération, nous avons : 
 <center>
-$ PR(A) = \frac{0.25}{2} + 0.25 + \frac{0.25}{3} =  0.458 $
+<a href="https://www.codecogs.com/eqnedit.php?latex=PR(A)&space;=&space;\frac{0.25}{2}&space;&plus;&space;0.25&space;&plus;&space;\frac{0.25}{3}&space;=&space;0.458" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(A)&space;=&space;\frac{0.25}{2}&space;&plus;&space;0.25&space;&plus;&space;\frac{0.25}{3}&space;=&space;0.458" title="PR(A) = \frac{0.25}{2} + 0.25 + \frac{0.25}{3} = 0.458" /></a>
 </center>
 De manière plus général, il est possible d'écrire : 
 <center>
-$ PR(A) = \frac{PR(B)}{L(B)} + \frac{PR(C)}{L(C)} + \frac{PR(D)}{L(D)}$
+<a href="https://www.codecogs.com/eqnedit.php?latex=PR(A)&space;=&space;\frac{PR(B)}{L(B)}&space;&plus;&space;\frac{PR(C)}{L(C)}&space;&plus;&space;\frac{PR(D)}{L(D)}" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(A)&space;=&space;\frac{PR(B)}{L(B)}&space;&plus;&space;\frac{PR(C)}{L(C)}&space;&plus;&space;\frac{PR(D)}{L(D)}" title="PR(A) = \frac{PR(B)}{L(B)} + \frac{PR(C)}{L(C)} + \frac{PR(D)}{L(D)}" /></a>
 </center>
 Où L(N) représente le nombre de liens sortant de la page N. 
 
 Ainsi, nous obtenons : 
 <center>
-$ PR(u) = \sum_{v \in B_u}\frac{PR(v)}{L(v)} $ 
+<a href="https://www.codecogs.com/eqnedit.php?latex=PR(u)&space;=&space;\sum_{v&space;\in&space;B_u}\frac{PR(v)}{L(v)}" target="_blank"><img src="https://latex.codecogs.com/png.latex?PR(u)&space;=&space;\sum_{v&space;\in&space;B_u}\frac{PR(v)}{L(v)}" title="PR(u) = \sum_{v \in B_u}\frac{PR(v)}{L(v)}" /></a>
 </center>
 Avec $ B_u $ l'ensemble des pages liant à u.
 
