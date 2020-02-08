@@ -24,7 +24,7 @@ __global__ void mul(float *matrice,float *state,int maxval)
     {
         for (int i =0;i<maxval;i++)
         {
-            resultat+=state[i]*matrice[maxval*ty+i];
+            resultat+=state[i]*matrice[maxval*i+ty];
         }
         state[ty]=resultat;
     }
