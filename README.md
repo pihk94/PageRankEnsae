@@ -163,7 +163,12 @@ La base issu du fichier email.txt se compose de 1004 sommets pour un total de 25
 Sur la base email.txt, le temps de traitement est de 409.753 millisecondes. 
 
 
-### 4.) Conclusion
+### 4.) Implémentation sous Cuda
+
+La partie qui prends le plus de temps a s'exécuter avec les grands fichiers est la partie concernant la multiplication matricielle. C'est cette partie qui est parallélisé. 
+
+
+### 5.) Conclusion
 
 A venir, j'ai encore des soucis de logique dans l'implémentation du code sous cuda du fichier PageRankCuda.cu. En effet, le fichier ne fonctionne que pour le pour la base de test se composant uniquement de 4 sommets. Pour celle des emails, j'ai des soucis dans le choix du nombre de blocks et de thread. En effet, dans ma fonction mul il semblerait que je n'affecte pas bien mes boucles qui dépendent justement de ce nombre de blocks et thread. Cela engendre des erreurs que je suis entrain de corriger... 
 
