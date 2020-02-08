@@ -76,6 +76,10 @@ int main(){
         maxval = maxiFrom+1;
     }
     float* matrice = new float[n*n];
+    for (int i = 0;i<maxval*maxval;i++)
+    {
+        matrice[i]=0;
+    }
     int idx_i,idx_j;
     for (int i =0;i<maxval*2 -1;i++)
     {
