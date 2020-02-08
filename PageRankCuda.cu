@@ -26,7 +26,7 @@ __global__ void mul(float *matrice,float *state,int maxval)
         {
             resultat+=state[i]*matrice[maxval*i+ty];
         }
-        state[ty]=resultat;
+        state[idx]=resultat;
     }
 }
 int main(){
