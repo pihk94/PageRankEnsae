@@ -157,15 +157,20 @@ Nous réalisons donc un comparatif des performances pour l'ensemble des trois da
 
 ### 3.) Implémentation sous C
 
-Dans un premier temps, j'ai réalisé un fichier en C++ permettant de réaliser le PageRank. Il prend en entrée un fichier texte à renseigner, demande ensuite le nombre maximale d'itérations choisis et réalise le PageRank. A noter qu'il faut manuellement renseigner le nombre de sommets du fichier. Une version sans cette manipulation est disponible dans le fichier 'PageRankAuto.cpp' mais étant donné que je n'arrivais pas bien à implémenter les vecteurs avec Cuda, la version qui sert de comparatif avec cuda est 'PageRank.cpp'. 
+Dans un premier temps, j'ai réalisé un fichier en C++ permettant de réaliser le PageRank. Il prend en entrée un fichier texte à renseigner, demande ensuite le nombre maximale d'itérations choisis et réalise le PageRank. A noter qu'il faut manuellement renseigner le nombre de sommets du fichier. Une version sans cette manipulation est disponible dans le fichier 'PageRankAuto.cpp' mais étant donné que je n'arrivais pas bien à implémenter les vecteurs avec Cuda, la version qui sert de comparatif avec cuda est 'PageRank.cpp'. Dans cette version, une matrice est stockée dans un tableau d'une seule dimension. Ainsi notre matrice 4x4 qui aurait pu être stocké dans un array de taille 4x4 est stockée dans un array de taille 16 de la manière suivante. 
 
-La base issu du fichier email.txt se compose de 1004 sommets pour un total de 25 571 arrêtes. En utilisant le code réalisé sous Python, on remarque un temps d'exécution d'environ 250 simillisecondes. Avec notre code en C++, le temps d'exécution est de xx millisecondes.
-Sur la base email.txt, le temps de traitement est de 409.753 millisecondes. 
+![png](matmul.png)
+
+Où une colonne de la matrice est accessible à l'aide de son indice.
+
+La base issu du fichier email.txt se compose de 1004 sommets pour un total de 25 571 arrêtes. En utilisant le code réalisé sous Python, on remarque un temps d'exécution d'environ 250 simillisecondes. Avec notre code en C++, le temps d'exécution est de 124.028 millisecondes.
 
 
 ### 4.) Implémentation sous Cuda
 
-La partie qui prends le plus de temps a s'exécuter avec les grands fichiers est la partie concernant la multiplication matricielle. C'est cette partie qui est parallélisé. 
+La partie qui prends le plus de temps a s'exécuter avec les grands fichiers est la partie concernant la multiplication matricielle. 
+Afin de parraléliser cette partie du code, une fonction mul a été crée. Elle réalise la multiplication du vecteur contenant les page ranks avec la matrice contenant les valeurs associées aux liens entrants et sortants de chaque page.
+
 
 
 ### 5.) Conclusion
